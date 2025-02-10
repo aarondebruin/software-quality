@@ -10,7 +10,7 @@ Dit project bevat verschillende diagrammen die de werking van **JabberPoint** ui
 
 Dit diagram toont hoe de huidige presentatie wordt opgeslagen, waarbij de wijzigingen naar een bestand worden weggeschreven.
 
-![Opslaan van een presentatie](diagrammen/sequence/sequence_save.png)
+![Opslaan van een presentatie](Diagrammen/sequence/sequence_save.png)
 
 ---
 
