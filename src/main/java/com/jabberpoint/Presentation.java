@@ -3,102 +3,108 @@ package com.jabberpoint;
 import java.util.ArrayList;
 
 /**
- * Presentation houdt de slides in de presentatie bij.
- *
- * <p>Er is slechts ��n instantie van deze klasse aanwezig.
- *
- * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
- * @version 1.1 2002/12/17 Gert Florijn
- * @version 1.2 2003/11/19 Sylvia Stuurman
- * @version 1.3 2004/08/17 Sylvia Stuurman
- * @version 1.4 2007/07/16 Sylvia Stuurman
- * @version 1.5 2010/03/03 Sylvia Stuurman
- * @version 1.6 2014/05/16 Sylvia Stuurman
+ * Presentation holds the slides in the presentation.
+ * <p>
+ * There is only one instance of this class present.
  */
-public class Presentation {
-  private String showTitle; // de titel van de presentatie
-  private ArrayList<Slide> showList = null; // een ArrayList met de Slides
-  private int currentSlideNumber = 0; // het slidenummer van de huidige Slide
-  private SlideViewerComponent slideViewComponent = null; // de viewcomponent voor de Slides
+public class Presentation
+{
+    private String showTitle; // the title of the presentation
+    private ArrayList<Slide> showList; // an ArrayList with the Slides
+    private int currentSlideNumber; // the slide number of the current Slide
+    private SlideViewerComponent slideViewComponent; // the view component for the Slides
 
-  public Presentation() {
-    slideViewComponent = null;
-    clear();
-  }
-
-  public Presentation(SlideViewerComponent slideViewerComponent) {
-    this.slideViewComponent = slideViewerComponent;
-    clear();
-  }
-
-  public int getSize() {
-    return showList.size();
-  }
-
-  public String getTitle() {
-    return showTitle;
-  }
-
-  public void setTitle(String nt) {
-    showTitle = nt;
-  }
-
-  public void setShowView(SlideViewerComponent slideViewerComponent) {
-    this.slideViewComponent = slideViewerComponent;
-  }
-
-  // geef het nummer van de huidige slide
-  public int getSlideNumber() {
-    return currentSlideNumber;
-  }
-
-  // verander het huidige-slide-nummer en laat het aan het window weten.
-  public void setSlideNumber(int number) {
-    currentSlideNumber = number;
-    if (slideViewComponent != null) {
-      slideViewComponent.update(this, getCurrentSlide());
+    // Package-private constructor to allow builder access but restrict others
+    Presentation()
+    {
+        clear();
     }
-  }
 
-  // ga naar de vorige slide tenzij je aan het begin van de presentatie bent
-  public void prevSlide() {
-    if (currentSlideNumber > 0) {
-      setSlideNumber(currentSlideNumber - 1);
+    public int getSize()
+    {
+        return showList.size();
     }
-  }
 
-  // Ga naar de volgende slide tenzij je aan het einde van de presentatie bent.
-  public void nextSlide() {
-    if (currentSlideNumber < (showList.size() - 1)) {
-      setSlideNumber(currentSlideNumber + 1);
+    public String getTitle()
+    {
+        return showTitle;
     }
-  }
 
-  // Verwijder de presentatie, om klaar te zijn voor de volgende
-  void clear() {
-    showList = new ArrayList<Slide>();
-    setSlideNumber(-1);
-  }
-
-  // Voeg een slide toe aan de presentatie
-  public void append(Slide slide) {
-    showList.add(slide);
-  }
-
-  // Geef een slide met een bepaald slidenummer
-  public Slide getSlide(int number) {
-    if (number < 0 || number >= getSize()) {
-      return null;
+    public void setTitle(String nt)
+    {
+        showTitle = nt;
     }
-    return (Slide) showList.get(number);
-  }
 
-  // Geef de huidige Slide
-  public Slide getCurrentSlide() {
-    return getSlide(currentSlideNumber);
-  }
+    public void setShowView(SlideViewerComponent slideViewerComponent)
+    {
+        this.slideViewComponent = slideViewerComponent;
+    }
 
-  public void exit(int n) {
-    System.exit(n);
-  }
+    // get the number of the current slide
+    public int getSlideNumber()
+    {
+        return currentSlideNumber;
+    }
+
+    // change the current slide number and notify the window
+    public void setSlideNumber(int number)
+    {
+        currentSlideNumber = number;
+        if (slideViewComponent != null)
+        {
+            slideViewComponent.update(this, getCurrentSlide());
+        }
+    }
+
+    // go to the previous slide unless you're at the beginning of the presentation
+    public void prevSlide()
+    {
+        if (currentSlideNumber > 0)
+        {
+            setSlideNumber(currentSlideNumber - 1);
+        }
+    }
+
+    // go to the next slide unless you're at the end of the presentation
+    public void nextSlide()
+    {
+        if (currentSlideNumber < (showList.size() - 1))
+        {
+            setSlideNumber(currentSlideNumber + 1);
+        }
+    }
+
+    // clear the presentation to be ready for the next one
+    void clear()
+    {
+        showList = new ArrayList<Slide>();
+        setSlideNumber(-1);
+    }
+
+    // add a slide to the presentation
+    public void append(Slide slide)
+    {
+        showList.add(slide);
+    }
+
+    // get a slide with a specific slide number
+    public Slide getSlide(int number)
+    {
+        if (number < 0 || number >= getSize())
+        {
+            return null;
+        }
+        return showList.get(number);
+    }
+
+    // get the current Slide
+    public Slide getCurrentSlide()
+    {
+        return getSlide(currentSlideNumber);
+    }
+
+    public void exit(int n)
+    {
+        System.exit(n);
+    }
 }
