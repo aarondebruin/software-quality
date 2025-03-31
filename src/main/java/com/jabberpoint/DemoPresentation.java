@@ -1,57 +1,57 @@
 package com.jabberpoint;
 
+import java.io.IOException;
+
 /**
- * Een ingebouwde demo-presentatie
- *
- * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
- * @version 1.1 2002/12/17 Gert Florijn
- * @version 1.2 2003/11/19 Sylvia Stuurman
- * @version 1.3 2004/08/17 Sylvia Stuurman
- * @version 1.4 2007/07/16 Sylvia Stuurman
- * @version 1.5 2010/03/03 Sylvia Stuurman
- * @version 1.6 2014/05/16 Sylvia Stuurman
+ * An accessor that provides a static demonstration presentation.
+ * It extends Accessor and uses the SlideBuilder/SlideDirector pattern.
  */
-class DemoPresentation extends Accessor {
+public class DemoPresentation extends Accessor
+{
+    /**
+     * Loads a predefined demo presentation into the given Presentation object.
+     * Uses SlideBuilder and SlideDirector for slide creation.
+     *
+     * @param presentation   The Presentation object to load slides into.
+     * @param unusedFilename This parameter is ignored for the demo.
+     * @throws IOException Not actually thrown by this implementation, but
+     *                     required by the abstract class signature.
+     */
+    @Override
+    public void loadFile(Presentation presentation, String unusedFilename) throws IOException
+    {
+        // Optional: Clear any existing slides in the presentation first
+        // presentation.clear(); // Add this if Presentation has a clear method
+        // Set a title for the demo presentation
+        presentation.setTitle(DEMO_NAME); // Using constant from Accessor
+        // Use the director for predefined slide structures
+        SlideDirector director = new SlideDirector();
+        // Slide 1: Use the director for a standard demo slide
+        // Create a new builder for each slide construction
+        Slide slide1 = director.constructDemoSlide(new SlideBuilder());
+        presentation.append(slide1);
+        // Slide 2: Use the director for a title slide
+        Slide slide2 = director.constructTitleSlide(new SlideBuilder(), "Builder Pattern Benefits");
+        presentation.append(slide2);
+        // Slide 3: Use the director for a text slide
+        Slide slide3 = director.constructTextSlide(new SlideBuilder(), "Key Benefits", "Separates construction & representation", "Allows different representations", "Controls construction process");
+        presentation.append(slide3);
+        // Slide 4: Build manually using the builder for custom structure
+        Slide slide4 = new SlideBuilder().withTitle("Manual Construction Example").addTextItem(1, "Mixing item types:").addBitmapItem(2, "jabberpoint.jpg") // Ensure jabberpoint.jpg exists
+                .addTextItem(3, "Image caption (level 3)").addTextItem(1, "End of manual slide.").build();
+        presentation.append(slide4);
+    }
 
-  public void loadFile(Presentation presentation, String unusedFilename) {
-    presentation.setTitle("Demo Presentation");
-    Slide slide;
-    slide = new Slide();
-    slide.setTitle("JabberPoint");
-    slide.append(1, "Het Java Presentatie Tool");
-    slide.append(2, "Copyright (c) 1996-2000: Ian Darwin");
-    slide.append(2, "Copyright (c) 2000-now:");
-    slide.append(2, "Gert Florijn en Sylvia Stuurman");
-    slide.append(4, "JabberPoint aanroepen zonder bestandsnaam");
-    slide.append(4, "laat deze presentatie zien");
-    slide.append(1, "Navigeren:");
-    slide.append(3, "Volgende slide: PgDn of Enter");
-    slide.append(3, "Vorige slide: PgUp of up-arrow");
-    slide.append(3, "Stoppen: q or Q");
-    presentation.append(slide);
-
-    slide = new Slide();
-    slide.setTitle("Demonstratie van levels en stijlen");
-    slide.append(1, "Level 1");
-    slide.append(2, "Level 2");
-    slide.append(1, "Nogmaals level 1");
-    slide.append(1, "Level 1 heeft stijl nummer 1");
-    slide.append(2, "Level 2 heeft stijl nummer 2");
-    slide.append(3, "Zo ziet level 3 er uit");
-    slide.append(4, "En dit is level 4");
-    presentation.append(slide);
-
-    slide = new Slide();
-    slide.setTitle("De derde slide");
-    slide.append(1, "Om een nieuwe presentatie te openen,");
-    slide.append(2, "gebruik File->Open uit het menu.");
-    slide.append(1, " ");
-    slide.append(1, "Dit is het einde van de presentatie.");
-    slide.append(new BitmapItem(1, "JabberPoint.jpg"));
-    presentation.append(slide);
-  }
-
-  public void saveFile(Presentation presentation, String unusedFilename) {
-    throw new IllegalStateException("Save As->Demo! aangeroepen");
-  }
+    /**
+     * Saving is not supported for the demo presentation.
+     *
+     * @param presentation The presentation object (ignored).
+     * @param filename     The filename (ignored).
+     * @throws IOException Always thrown as this operation is unsupported.
+     */
+    @Override
+    public void saveFile(Presentation presentation, String filename) throws IOException
+    {
+        throw new IOException("Saving is not supported for the Demo Presentation.");
+    }
 }
