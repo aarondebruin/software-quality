@@ -65,28 +65,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Cache google-java-format
-        id: cache-gjf
-        uses: actions/cache@v3
-        with:
-          path: google-java-format.jar
-          key: google-java-format-1.17.0
-
-      - name: Download google-java-format (if not cached)
-        if: steps.cache-gjf.outputs.cache-hit != 'true'
+      - name: Check Java formatting with custom rules
         run: |
-          curl -LJO https://github.com/google/google-java-format/releases/download/v1.17.0/google-java-format-1.17.0-all-deps.jar
-          mv google-java-format-1.17.0-all-deps.jar google-java-format.jar
-
-      - name: Check Java formatting
-        run: |
-          JAVA_FILES=$(find src -name "*.java")
-          if [ -n "$JAVA_FILES" ]; then
-            java -jar google-java-format.jar --dry-run --set-exit-if-changed $JAVA_FILES || (
-              echo "Code is not formatted correctly. Run the following command locally to fix it:"
-              echo "java -jar google-java-format.jar --replace $(find src -name '*.java')"
-              exit 1
-            )
-          else
-            echo "No Java files found, skipping formatting check."
-          fi
+          mvn com.github.spotbugs:spotbugs-maven-plugin:check -DconfigFile=../config/checkStyle.xml || (
+            echo "Code formatting does not match the custom style rules. Run the following command locally to fix it:"
+            echo "mvn com.github.spotbugs:spotbugs-maven-plugin:check -DconfigFile=../config/checkStyle.xml"
+            exit 1
+          )
