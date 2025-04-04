@@ -1,10 +1,5 @@
 package com.jabberpoint;
-// No other imports needed for this basic builder structure
 
-/**
- * Builder for creating Slide objects step-by-step.
- * Follows the Builder design pattern.
- */
 public class SlideBuilder
 {
     // The object being built
@@ -78,9 +73,8 @@ public class SlideBuilder
     {
         // You could add validation here if needed (e.g., ensure title exists)
         Slide completedSlide = this.slideInProgress;
-        // Reset for potential reuse of the builder instance, though often
-        // a new builder is created for each product.
-        // this.slideInProgress = new Slide();
+        // Reset for potential reuse of the builder instance
+        this.slideInProgress = new Slide();
         return completedSlide;
     }
 }

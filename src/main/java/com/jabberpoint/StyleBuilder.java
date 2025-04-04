@@ -2,37 +2,48 @@ package com.jabberpoint;
 
 import java.awt.Color;
 
-public class StyleBuilder {
+public class StyleBuilder implements StyleBuilderInterface
+{
     private int indent;
     private Color color = Color.black; // default
     private int fontSize = 24; // default
     private int leading = 10; // default
 
-    public StyleBuilder() {
-        // Default constructor
+    public StyleBuilder()
+    {
     }
 
-    public StyleBuilder withIndent(int indent) {
+    @Override
+    public StyleBuilder withIndent(int indent)
+    {
         this.indent = indent;
         return this;
     }
 
-    public StyleBuilder withColor(Color color) {
+    @Override
+    public StyleBuilder withColor(Color color)
+    {
         this.color = color;
         return this;
     }
 
-    public StyleBuilder withFontSize(int fontSize) {
+    @Override
+    public StyleBuilder withFontSize(int fontSize)
+    {
         this.fontSize = fontSize;
         return this;
     }
 
-    public StyleBuilder withLeading(int leading) {
+    @Override
+    public StyleBuilder withLeading(int leading)
+    {
         this.leading = leading;
         return this;
     }
 
-    public Style build() {
+    @Override
+    public PresentationStyle build()
+    {
         return new Style(indent, color, fontSize, leading);
     }
 }

@@ -1,9 +1,5 @@
 package com.jabberpoint;
 
-/**
- * Director class that knows how to construct common types of slides
- * using a SlideBuilder.
- */
 public class SlideDirector
 {
     /**
@@ -14,9 +10,7 @@ public class SlideDirector
      */
     public Slide constructDemoSlide(SlideBuilder builder)
     {
-        return builder.withTitle("JabberPoint Demo").addTextItem(1, "A demonstration slide").addTextItem(2, "Item 1 using the builder").addTextItem(1, "Adding different items").addTextItem(3, "Sub-item A").addTextItem(3, "Sub-item B")
-                // .addBitmapItem(1, "path/to/your/image.jpg") // Add if you have an image
-                .build();
+        return builder.withTitle("JabberPoint Demo").addTextItem(1, "A demonstration slide").addTextItem(2, "Item 1 using the builder").addTextItem(1, "Adding different items").addTextItem(3, "Sub-item A").addTextItem(3, "Sub-item B").build();
     }
 
     /**
@@ -48,5 +42,17 @@ public class SlideDirector
         }
         return builder.build();
     }
-    // Add more construction methods for other common slide layouts as needed
+
+    /**
+     * Constructs a slide with a title and an image.
+     *
+     * @param builder   The SlideBuilder to use for construction.
+     * @param title     The title for the slide.
+     * @param imagePath The path to the image.
+     * @return The constructed image Slide.
+     */
+    public Slide constructImageSlide(SlideBuilder builder, String title, String imagePath)
+    {
+        return builder.withTitle(title).addBitmapItem(1, imagePath).build();
+    }
 }
