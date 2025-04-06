@@ -1,12 +1,24 @@
 package com.jabberpoint;
 
+import com.jabberpoint.presentation.PresentationMemento;
+import com.jabberpoint.slide.SlideMemento;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 /**
- * Presentation holds the slides in the presentation.
- * Implementeert Single Responsibility Principle door zich te richten op het beheren van slides.
+ * Presentation houdt de slides in de presentatie bij.
+ *
+ * <p>Er is slechts ��n instantie van deze klasse aanwezig.
+ *
+ * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
+ * @version 1.1 2002/12/17 Gert Florijn
+ * @version 1.2 2003/11/19 Sylvia Stuurman
+ * @version 1.3 2004/08/17 Sylvia Stuurman
+ * @version 1.4 2007/07/16 Sylvia Stuurman
+ * @version 1.5 2010/03/03 Sylvia Stuurman
+ * @version 1.6 2014/05/16 Sylvia Stuurman
  */
 public class Presentation
 {
@@ -195,5 +207,27 @@ public class Presentation
     public void exit(int status)
     {
         System.exit(status);
+    }
+
+    public PresentationMemento createMemento() {
+        ArrayList<SlideMemento> slideMementos = new ArrayList<>();
+        for (Slide slide : slides) {
+            slideMementos.add(new SlideMemento(slide.getTitle(), slide.getSlideItems()));
+        }
+        return new PresentationMemento(title, slideMementos, currentSlideNumber);
+    }
+
+    public void restoreMemento(PresentationMemento memento) {
+        clear();
+        setTitle(memento.getTitle());
+        for (SlideMemento slideMemento : memento.getSlides()) {
+            Slide slide = new Slide();
+            slide.setTitle(slideMemento.getTitle());
+            for (SlideItem item : slideMemento.getItems()) {
+                slide.append(item); // Zorg dat SlideItem clonebaar is indien nodig
+            }
+            append(slide);
+        }
+        setSlideNumber(memento.getCurrentSlideNumber());
     }
 }
