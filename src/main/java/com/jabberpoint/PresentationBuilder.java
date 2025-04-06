@@ -50,6 +50,18 @@ public class PresentationBuilder
     }
 
     /**
+     * Adds multiple slides to the presentation being built.
+     *
+     * @param slides The slides to add
+     * @return The builder instance for chaining
+     */
+    public PresentationBuilder addSlides(List<Slide> slides)
+    {
+        this.slides.addAll(slides);
+        return this;
+    }
+
+    /**
      * Builds the presentation with the configured properties.
      *
      * @return The built Presentation object

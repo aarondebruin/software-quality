@@ -28,7 +28,7 @@ class PresentationBuilderTest {
 
     @Test
     void testWithTitle() {
-        Presentation presentation = builder.withTitle("Test Title").build();
+        Presentation presentation = builder.setTitle("Test Title").build();
 
         assertEquals("Test Title", presentation.getTitle(), "Title moet Test Title zijn");
         assertEquals(0, presentation.getSize(), "Presentation moet geen slides heben");
