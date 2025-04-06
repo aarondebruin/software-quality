@@ -1,5 +1,8 @@
 package com.jabberpoint;
 
+import com.jabberpoint.presentation.PresentationMemento;
+import com.jabberpoint.slide.SlideMemento;
+
 import java.util.ArrayList;
 
 /**
@@ -101,4 +104,27 @@ public class Presentation {
   public void exit(int n) {
     System.exit(n);
   }
+
+  public PresentationMemento createMemento() {
+    ArrayList<SlideMemento> slideMementos = new ArrayList<>();
+    for (Slide slide : showList) {
+      slideMementos.add(new SlideMemento(slide.getTitle(), slide.getSlideItems()));
+    }
+    return new PresentationMemento(showTitle, slideMementos, currentSlideNumber);
+  }
+
+  public void restoreMemento(PresentationMemento memento) {
+    clear();
+    setTitle(memento.getTitle());
+    for (SlideMemento slideMemento : memento.getSlides()) {
+      Slide slide = new Slide();
+      slide.setTitle(slideMemento.getTitle());
+      for (SlideItem item : slideMemento.getItems()) {
+        slide.append(item); // Zorg dat SlideItem clonebaar is indien nodig
+      }
+      append(slide);
+    }
+    setSlideNumber(memento.getCurrentSlideNumber());
+  }
+
 }
