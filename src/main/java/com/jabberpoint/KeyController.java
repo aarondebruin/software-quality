@@ -1,5 +1,7 @@
 package com.jabberpoint;
 
+import com.jabberpoint.commands.Command;
+
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -14,30 +16,55 @@ import java.awt.event.KeyEvent;
  * @version 1.5 2010/03/03 Sylvia Stuurman
  * @version 1.6 2014/05/16 Sylvia Stuurman
  */
-public class KeyController extends KeyAdapter {
-  private Presentation presentation; // Er worden commando's gegeven aan de presentatie
 
-  public KeyController(Presentation p) {
-    presentation = p;
+public class KeyController extends KeyAdapter {
+  private Command nextCommand;
+  private Command prevCommand;
+  private Command openCommand;
+  private Command saveCommand;
+  private Command newCommand;
+  private Command exitCommand;
+
+  public KeyController(Command nextCommand, Command prevCommand, Command openCommand,
+                       Command saveCommand, Command newCommand, Command exitCommand) {
+    this.nextCommand = nextCommand;
+    this.prevCommand = prevCommand;
+    this.openCommand = openCommand;
+    this.saveCommand = saveCommand;
+    this.newCommand = newCommand;
+    this.exitCommand = exitCommand;
   }
 
+  @Override
   public void keyPressed(KeyEvent keyEvent) {
     switch (keyEvent.getKeyCode()) {
       case KeyEvent.VK_PAGE_DOWN:
       case KeyEvent.VK_DOWN:
       case KeyEvent.VK_ENTER:
       case '+':
-        presentation.nextSlide();
+        nextCommand.execute();
         break;
       case KeyEvent.VK_PAGE_UP:
       case KeyEvent.VK_UP:
       case '-':
-        presentation.prevSlide();
+        prevCommand.execute();
+        break;
+      case 'o':
+      case 'O':
+        openCommand.execute();
+        break;
+      case 's':
+      case 'S':
+        saveCommand.execute();
+        break;
+      case 'n':
+      case 'N':
+        newCommand.execute();
         break;
       case 'q':
       case 'Q':
-        System.exit(0);
-        break; // wordt nooit bereikt als het goed is
+        exitCommand.execute();
+        break;
       default:
         break;
     }

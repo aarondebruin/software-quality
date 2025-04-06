@@ -21,7 +21,7 @@ public class OpenCommand implements Command{
         presentation.clear();
         Accessor xmlAccessor = new XMLAccessor();
         try {
-            xmlAccessor.loadFile(presentation, "test.xml");
+            xmlAccessor.loadFile(presentation, "dump.xml");
             presentation.setSlideNumber(0);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(parent, "IO Exception: " + e, "Load Error", JOptionPane.ERROR_MESSAGE);

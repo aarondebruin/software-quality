@@ -1,5 +1,7 @@
 package com.jabberpoint;
 
+import com.jabberpoint.commands.*;
+
 import java.awt.Dimension;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -34,15 +36,27 @@ public class SlideViewerFrame extends JFrame {
   public void setupWindow(SlideViewerComponent slideViewerComponent, Presentation presentation) {
     setTitle(JABTITLE);
     addWindowListener(
-        new WindowAdapter() {
-          public void windowClosing(WindowEvent e) {
-            System.exit(0);
-          }
-        });
+            new WindowAdapter() {
+              public void windowClosing(WindowEvent e) {
+                System.exit(0);
+              }
+            });
     getContentPane().add(slideViewerComponent);
-    addKeyListener(new KeyController(presentation)); // een controller toevoegen
-    setMenuBar(new MenuController(this, presentation)); // nog een controller toevoegen
+
+    OpenCommand openCommand = new OpenCommand(presentation, this);
+    SaveCommand saveCommand = new SaveCommand(presentation, this);
+    NewCommand newCommand = new NewCommand(presentation);
+    NextCommand nextCommand = new NextCommand(presentation);
+    PrevCommand prevCommand = new PrevCommand(presentation);
+    ExitCommand exitCommand = new ExitCommand(presentation);
+
+    KeyController keyController = new KeyController(nextCommand, prevCommand, openCommand, saveCommand, newCommand, exitCommand);
+    addKeyListener(keyController);
+
+    setMenuBar(new MenuController(this, presentation));
+
     setSize(new Dimension(WIDTH, HEIGHT)); // Dezelfde maten als Slide hanteert.
     setVisible(true);
   }
+
 }

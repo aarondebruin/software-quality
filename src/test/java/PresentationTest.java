@@ -1,5 +1,6 @@
 import com.jabberpoint.Presentation;
 import com.jabberpoint.Slide;
+import com.jabberpoint.presentation.PresentationMemento;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -103,5 +104,45 @@ public class PresentationTest {
         assertNull(slide);
         slide = presentation.getSlide(0);
         assertNull(slide);
+    }
+
+    @Test
+    public void testCreateMemento() {
+        presentation.setTitle("Test Presentation");
+        Slide slide1 = new Slide();
+        slide1.setTitle("Slide 1");
+        presentation.append(slide1);
+
+        Slide slide2 = new Slide();
+        slide2.setTitle("Slide 2");
+        presentation.append(slide2);
+        presentation.setSlideNumber(0);
+
+        PresentationMemento memento = presentation.createMemento();
+
+        assertEquals("Test Presentation", memento.getTitle());
+        assertEquals(2, memento.getSlides().size());
+        assertEquals(0, memento.getCurrentSlideNumber());
+    }
+
+    @Test
+    public void testRestoreMemento() {
+        presentation.setTitle("Original Presentation");
+        Slide slide1 = new Slide();
+        slide1.setTitle("Original Slide 1");
+        presentation.append(slide1);
+
+        presentation.setSlideNumber(0);
+        PresentationMemento memento = presentation.createMemento();
+
+        presentation.setTitle("Modified Presentation");
+        presentation.append(new Slide());
+
+        presentation.restoreMemento(memento);
+
+        assertEquals("Original Presentation", presentation.getTitle());
+        assertEquals(1, presentation.getSize());
+        assertEquals("Original Slide 1", presentation.getSlide(0).getTitle());
+        assertEquals(0, presentation.getSlideNumber()); // Huidige slide moet ook 0 zijn
     }
 }
