@@ -4,12 +4,12 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - '**'
+      - main
+      - dev
   pull_request:
     branches:
       - main
       - dev
-
 
 jobs:
   setup:
