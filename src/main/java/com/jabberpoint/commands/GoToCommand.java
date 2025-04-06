@@ -4,16 +4,22 @@ import com.jabberpoint.Presentation;
 
 import javax.swing.*;
 
-public class GoToCommand implements Command{
-    private Presentation presentation;
+public class GoToCommand implements Command {
+    private final Presentation presentation;
+    private String input; // Toegevoegd voor testbaarheid
 
     public GoToCommand(Presentation pres) {
+        this(pres, null);
+    }
+
+    public GoToCommand(Presentation pres, String input) {
         this.presentation = pres;
+        this.input = input;
     }
 
     @Override
     public void execute() {
-        String pageNumberStr = JOptionPane.showInputDialog("Page number?");
+        String pageNumberStr = (input != null) ? input : JOptionPane.showInputDialog("Page number?");
         try {
             int pageNumber = Integer.parseInt(pageNumberStr);
             presentation.setSlideNumber(pageNumber - 1);

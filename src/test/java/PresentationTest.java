@@ -108,7 +108,7 @@ public class PresentationTest {
 
     @Test
     public void testCreateMemento() {
-        presentation.setTitle("Test Presentation");
+        presentation.setTitle("Test pres");
         Slide slide1 = new Slide();
         slide1.setTitle("Slide 1");
         presentation.append(slide1);
@@ -120,29 +120,29 @@ public class PresentationTest {
 
         PresentationMemento memento = presentation.createMemento();
 
-        assertEquals("Test Presentation", memento.getTitle());
+        assertEquals("Test pres", memento.getTitle());
         assertEquals(2, memento.getSlides().size());
         assertEquals(0, memento.getCurrentSlideNumber());
     }
 
     @Test
     public void testRestoreMemento() {
-        presentation.setTitle("Original Presentation");
+        presentation.setTitle("Title");
         Slide slide1 = new Slide();
-        slide1.setTitle("Original Slide 1");
+        slide1.setTitle("Slide 1");
         presentation.append(slide1);
 
         presentation.setSlideNumber(0);
         PresentationMemento memento = presentation.createMemento();
 
-        presentation.setTitle("Modified Presentation");
+        presentation.setTitle("Edited title");
         presentation.append(new Slide());
 
         presentation.restoreMemento(memento);
 
-        assertEquals("Original Presentation", presentation.getTitle());
+        assertEquals("Title", presentation.getTitle());
         assertEquals(1, presentation.getSize());
-        assertEquals("Original Slide 1", presentation.getSlide(0).getTitle());
-        assertEquals(0, presentation.getSlideNumber()); // Huidige slide moet ook 0 zijn
+        assertEquals("Slide 1", presentation.getSlide(0).getTitle());
+        assertEquals(0, presentation.getSlideNumber());
     }
 }

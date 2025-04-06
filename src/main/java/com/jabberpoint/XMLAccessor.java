@@ -48,8 +48,7 @@ public class XMLAccessor extends Accessor
     }
 
     @Override
-    public void loadFile(Presentation presentation, String filename) throws IOException
-    {
+    public void loadFile(Presentation presentation, String filename) throws IOException {
         // presentation.clear(); // Optional: Clear existing slides
         int slideNumber, itemNumber, maxSlides, maxItems;
         SlideBuilder slideBuilder = null;
