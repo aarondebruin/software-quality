@@ -58,7 +58,6 @@ public class Style implements PresentationStyle
         return "[" + indent + "," + color + "; " + fontSize + " on " + leading + "]";
     }
 
-    // Static factory method to get styles - behouden voor backward compatibility
     public static Style getStyle(int level)
     {
         StyleDirector director = new StyleDirector(new StyleBuilder());

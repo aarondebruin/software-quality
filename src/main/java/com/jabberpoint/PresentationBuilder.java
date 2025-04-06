@@ -19,7 +19,7 @@ public class PresentationBuilder
      * @param title The presentation title
      * @return The builder instance for chaining
      */
-    public PresentationBuilder withTitle(String title)
+    public PresentationBuilder setTitle(String title)
     {
         this.title = title;
         return this;
@@ -31,7 +31,7 @@ public class PresentationBuilder
      * @param component The view component
      * @return The builder instance for chaining
      */
-    public PresentationBuilder withSlideViewerComponent(SlideViewerComponent component)
+    public PresentationBuilder setSlideViewerComponent(SlideViewerComponent component)
     {
         this.viewComponent = component;
         return this;
@@ -46,18 +46,6 @@ public class PresentationBuilder
     public PresentationBuilder addSlide(Slide slide)
     {
         this.slides.add(slide);
-        return this;
-    }
-
-    /**
-     * Adds multiple slides to the presentation being built.
-     *
-     * @param slides The slides to add
-     * @return The builder instance for chaining
-     */
-    public PresentationBuilder addSlides(List<Slide> slides)
-    {
-        this.slides.addAll(slides);
         return this;
     }
 

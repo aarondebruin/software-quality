@@ -21,7 +21,7 @@ public class StyleDirector
      */
     public PresentationStyle createTitleStyle()
     {
-        return builder.withIndent(0).withColor(Color.red).withFontSize(48).withLeading(20).build();
+        return builder.setIndent(0).setColor(Color.red).setFontSize(48).setLeading(20).build();
     }
 
     /**
@@ -29,7 +29,7 @@ public class StyleDirector
      */
     public PresentationStyle createHeadingStyle()
     {
-        return builder.withIndent(20).withColor(Color.blue).withFontSize(40).withLeading(10).build();
+        return builder.setIndent(20).setColor(Color.blue).setFontSize(40).setLeading(10).build();
     }
 
     /**
@@ -37,7 +37,7 @@ public class StyleDirector
      */
     public PresentationStyle createSubheadingStyle()
     {
-        return builder.withIndent(50).withColor(Color.black).withFontSize(36).withLeading(10).build();
+        return builder.setIndent(50).setColor(Color.black).setFontSize(36).setLeading(10).build();
     }
 
     /**
@@ -45,7 +45,7 @@ public class StyleDirector
      */
     public PresentationStyle createBodyStyle()
     {
-        return builder.withIndent(70).withColor(Color.black).withFontSize(30).withLeading(10).build();
+        return builder.setIndent(70).setColor(Color.black).setFontSize(30).setLeading(10).build();
     }
 
     /**
@@ -53,7 +53,7 @@ public class StyleDirector
      */
     public PresentationStyle createFootnoteStyle()
     {
-        return builder.withIndent(90).withColor(Color.black).withFontSize(24).withLeading(10).build();
+        return builder.setIndent(90).setColor(Color.black).setFontSize(24).setLeading(10).build();
     }
 
     /**

@@ -37,7 +37,7 @@ public class DemoPresentation extends Accessor
         Slide slide3 = director.constructTextSlide(new SlideBuilder(), "Key Benefits", "Separates construction & representation", "Allows different representations", "Controls construction process");
         presentation.append(slide3);
         // Slide 4: Build manually using the builder for custom structure
-        Slide slide4 = new SlideBuilder().withTitle("Manual Construction Example").addTextItem(1, "Mixing item types:").addBitmapItem(2, "jabberpoint.jpg") // Ensure jabberpoint.jpg exists
+        Slide slide4 = new SlideBuilder().setTitle("Manual Construction Example").addTextItem(1, "Mixing item types:").addBitmapItem(2, "jabberpoint.jpg") // Ensure jabberpoint.jpg exists
                 .addTextItem(3, "Image caption (level 3)").addTextItem(1, "End of manual slide.").build();
         presentation.append(slide4);
     }
