@@ -1,5 +1,4 @@
-![](./JabberPoint.gif)
-
+Github: https://github.com/aarondebruin/software-quality
 ## Inhoud
 
 - [Vereisten](#vereisten)
