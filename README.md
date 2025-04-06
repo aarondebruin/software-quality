@@ -3,11 +3,8 @@
 ## Inhoud
 
 - [Vereisten](#vereisten)
-- [Projectstructuur](#projectstructuur)
 - [Opstarten van de applicatie](#opstarten-van-de-applicatie)
 - [Tests uitvoeren](#tests-uitvoeren)
-- [Gebruik](#gebruik)
-- [Ontwerpprincipes](#ontwerpprincipes)
 
 ## Vereisten
 
