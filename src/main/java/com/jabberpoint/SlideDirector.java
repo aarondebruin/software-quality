@@ -10,7 +10,7 @@ public class SlideDirector
      */
     public Slide constructDemoSlide(SlideBuilder builder)
     {
-        return builder.withTitle("JabberPoint Demo").addTextItem(1, "A demonstration slide").addTextItem(2, "Item 1 using the builder").addTextItem(1, "Adding different items").addTextItem(3, "Sub-item A").addTextItem(3, "Sub-item B").build();
+        return builder.setTitle("JabberPoint Demo").addTextItem(1, "A demonstration slide").addTextItem(2, "Item 1 using the builder").addTextItem(1, "Adding different items").addTextItem(3, "Sub-item A").addTextItem(3, "Sub-item B").build();
     }
 
     /**
@@ -22,7 +22,7 @@ public class SlideDirector
      */
     public Slide constructTitleSlide(SlideBuilder builder, String title)
     {
-        return builder.withTitle(title).build();
+        return builder.setTitle(title).build();
     }
 
     /**
@@ -35,7 +35,7 @@ public class SlideDirector
      */
     public Slide constructTextSlide(SlideBuilder builder, String title, String... points)
     {
-        builder.withTitle(title);
+        builder.setTitle(title);
         for (String point : points)
         {
             builder.addTextItem(1, point); // Assuming level 1 for simplicity
@@ -53,6 +53,6 @@ public class SlideDirector
      */
     public Slide constructImageSlide(SlideBuilder builder, String title, String imagePath)
     {
-        return builder.withTitle(title).addBitmapItem(1, imagePath).build();
+        return builder.setTitle(title).addBitmapItem(1, imagePath).build();
     }
 }

@@ -66,7 +66,7 @@ public class XMLAccessor extends Accessor
                 Element xmlSlide = (Element) slides.item(slideNumber);
                 // Start a new builder for each slide
                 slideBuilder = new SlideBuilder();
-                slideBuilder.withTitle(getTextContent(xmlSlide, SLIDETITLE));
+                slideBuilder.setTitle(getTextContent(xmlSlide, SLIDETITLE));
                 NodeList slideItems = xmlSlide.getElementsByTagName(ITEM);
                 maxItems = slideItems.getLength();
                 for (itemNumber = 0; itemNumber < maxItems; itemNumber++)

@@ -19,7 +19,7 @@ public class SlideBuilder
      * @param title The title text.
      * @return The builder instance for chaining.
      */
-    public SlideBuilder withTitle(String title)
+    public SlideBuilder setTitle(String title)
     {
         this.slideInProgress.setTitle(title);
         return this;

@@ -19,7 +19,7 @@ public class PresentationBuilder
      * @param title The presentation title
      * @return The builder instance for chaining
      */
-    public PresentationBuilder withTitle(String title)
+    public PresentationBuilder setTitle(String title)
     {
         this.title = title;
         return this;
@@ -31,7 +31,7 @@ public class PresentationBuilder
      * @param component The view component
      * @return The builder instance for chaining
      */
-    public PresentationBuilder withSlideViewerComponent(SlideViewerComponent component)
+    public PresentationBuilder setSlideViewerComponent(SlideViewerComponent component)
     {
         this.viewComponent = component;
         return this;

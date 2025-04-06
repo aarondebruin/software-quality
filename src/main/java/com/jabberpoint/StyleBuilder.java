@@ -14,28 +14,28 @@ public class StyleBuilder implements StyleBuilderInterface
     }
 
     @Override
-    public StyleBuilder withIndent(int indent)
+    public StyleBuilder setIndent(int indent)
     {
         this.indent = indent;
         return this;
     }
 
     @Override
-    public StyleBuilder withColor(Color color)
+    public StyleBuilder setColor(Color color)
     {
         this.color = color;
         return this;
     }
 
     @Override
-    public StyleBuilder withFontSize(int fontSize)
+    public StyleBuilder setFontSize(int fontSize)
     {
         this.fontSize = fontSize;
         return this;
     }
 
     @Override
-    public StyleBuilder withLeading(int leading)
+    public StyleBuilder setLeading(int leading)
     {
         this.leading = leading;
         return this;

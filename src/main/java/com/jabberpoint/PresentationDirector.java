@@ -1,7 +1,6 @@
 package com.jabberpoint;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -94,10 +93,10 @@ public class PresentationDirector
         Slide titleSlide = slideDirector.constructTitleSlide(slideBuilder, title);
         presentation.append(titleSlide);
         slideBuilder = new SlideBuilder(); // Reset builder
-        Slide introSlide = slideBuilder.withTitle("Introduction").addTextItem(1, "Welcome to " + title).addTextItem(2, "This presentation covers:").addTextItem(3, "Important topic 1").addTextItem(3, "Important topic 2").build();
+        Slide introSlide = slideBuilder.setTitle("Introduction").addTextItem(1, "Welcome to " + title).addTextItem(2, "This presentation covers:").addTextItem(3, "Important topic 1").addTextItem(3, "Important topic 2").build();
         presentation.append(introSlide);
         slideBuilder = new SlideBuilder(); // Reset builder
-        Slide conclusionSlide = slideBuilder.withTitle("Conclusion").addTextItem(1, "Thank you for your attention").addTextItem(2, "Questions?").build();
+        Slide conclusionSlide = slideBuilder.setTitle("Conclusion").addTextItem(1, "Thank you for your attention").addTextItem(2, "Questions?").build();
         presentation.append(conclusionSlide);
         return presentation;
     }

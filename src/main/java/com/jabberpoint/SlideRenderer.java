@@ -1,4 +1,3 @@
-// SlideRenderer.java (aangepast)
 package com.jabberpoint;
 
 import java.awt.Graphics;

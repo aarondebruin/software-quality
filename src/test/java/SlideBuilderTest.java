@@ -23,7 +23,7 @@ class SlideBuilderTest {
 
     @Test
     void testWithTitle() {
-        Slide slide = builder.withTitle("Test Title").build();
+        Slide slide = builder.setTitle("Test Title").build();
 
         assertEquals("Test Title", slide.getTitle(), "Title moet Test Title zijn");
         assertEquals(0, slide.getSize(), "Slide groote moet 0 zijn");
@@ -71,7 +71,7 @@ class SlideBuilderTest {
     @Test
     void testFullConfig() {
         Slide slide = builder
-                .withTitle("Full Slide")
+                .setTitle("Full Slide")
                 .addTextItem(1, "Text Item")
                 .addBitmapItem(2, "image.png")
                 .addItem(new TextItem(3, "Custom Item"))
