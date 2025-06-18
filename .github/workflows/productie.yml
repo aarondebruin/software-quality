@@ -20,20 +20,4 @@ jobs:
       - name: Build artifact
         run: mvn package -DskipTests
 
-      - name: Deploy
-        run: echo "Hier zou je een productie-deployscript uitvoeren"
 
-  release:
-    needs: deploy
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: v${{ github.run_number }}
-          name: Release v${{ github.run_number }}
-          files: target/*.jar
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
