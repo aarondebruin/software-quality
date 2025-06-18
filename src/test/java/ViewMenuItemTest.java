@@ -1,10 +1,16 @@
 import com.jabberpoint.Presentation;
 import com.jabberpoint.menuItems.ViewMenuItem;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class ViewMenuItemTest {
+
+    @BeforeAll
+    static void setupHeadless() {
+        System.setProperty("java.awt.headless", "true");
+    }
 
     @Test
     void viewMenuContainsCorrectItems() {

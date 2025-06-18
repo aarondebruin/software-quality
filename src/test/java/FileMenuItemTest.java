@@ -1,5 +1,6 @@
 import com.jabberpoint.Presentation;
 import com.jabberpoint.menuItems.FileMenuItem;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;
@@ -7,6 +8,11 @@ import java.awt.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class FileMenuItemTest {
+
+    @BeforeAll
+    static void setupHeadless() {
+        System.setProperty("java.awt.headless", "true");
+    }
 
     @Test
     void fileMenuContainsCorrectItems() {
