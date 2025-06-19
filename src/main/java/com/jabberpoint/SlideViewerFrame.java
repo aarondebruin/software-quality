@@ -1,10 +1,13 @@
 package com.jabberpoint;
 
-import com.jabberpoint.commands.*;
+import com.jabberpoint.commandPattern.CommandRegistry;
+import com.jabberpoint.commandPattern.KeyController;
+import com.jabberpoint.commandPattern.commands.Command;
 
 import java.awt.Dimension;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.Map;
 import javax.swing.JFrame;
 
 /**
@@ -35,28 +38,24 @@ public class SlideViewerFrame extends JFrame {
   // De GUI opzetten
   public void setupWindow(SlideViewerComponent slideViewerComponent, Presentation presentation) {
     setTitle(JABTITLE);
-    addWindowListener(
-            new WindowAdapter() {
-              public void windowClosing(WindowEvent e) {
-                System.exit(0);
-              }
-            });
+
+    addWindowListener(new WindowAdapter() {
+      public void windowClosing(WindowEvent e) {
+        System.exit(0);
+      }
+    });
+
     getContentPane().add(slideViewerComponent);
 
-    OpenCommand openCommand = new OpenCommand(presentation, this);
-    SaveCommand saveCommand = new SaveCommand(presentation, this);
-    NewCommand newCommand = new NewCommand(presentation);
-    NextCommand nextCommand = new NextCommand(presentation);
-    PrevCommand prevCommand = new PrevCommand(presentation);
-    ExitCommand exitCommand = new ExitCommand(presentation);
-
-    KeyController keyController = new KeyController(nextCommand, prevCommand, openCommand, saveCommand, newCommand, exitCommand);
+    Map<Integer, Command> keyCommands = CommandRegistry.createKeyCommands(presentation, this);
+    KeyController keyController = new KeyController(keyCommands);
     addKeyListener(keyController);
 
     setMenuBar(new MenuController(this, presentation));
 
-    setSize(new Dimension(WIDTH, HEIGHT)); // Dezelfde maten als Slide hanteert.
+    setSize(new Dimension(WIDTH, HEIGHT));
     setVisible(true);
   }
+
 
 }

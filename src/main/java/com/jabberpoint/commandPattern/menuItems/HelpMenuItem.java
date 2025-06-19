@@ -1,7 +1,7 @@
-package com.jabberpoint.menuItems;
+package com.jabberpoint.commandPattern.menuItems;
 
-import com.jabberpoint.commands.AboutCommand;
-import com.jabberpoint.commands.Command;
+import com.jabberpoint.commandPattern.commands.AboutCommand;
+import com.jabberpoint.commandPattern.commands.Command;
 
 import java.awt.*;
 

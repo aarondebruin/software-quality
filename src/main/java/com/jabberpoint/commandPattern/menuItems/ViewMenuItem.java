@@ -1,10 +1,10 @@
-package com.jabberpoint.menuItems;
+package com.jabberpoint.commandPattern.menuItems;
 
 import com.jabberpoint.Presentation;
-import com.jabberpoint.commands.Command;
-import com.jabberpoint.commands.GoToCommand;
-import com.jabberpoint.commands.NextCommand;
-import com.jabberpoint.commands.PrevCommand;
+import com.jabberpoint.commandPattern.commands.Command;
+import com.jabberpoint.commandPattern.commands.GoToCommand;
+import com.jabberpoint.commandPattern.commands.NextCommand;
+import com.jabberpoint.commandPattern.commands.PrevCommand;
 
 import java.awt.*;
 

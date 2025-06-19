@@ -2,7 +2,7 @@ package commands;
 
 import com.jabberpoint.Presentation;
 import com.jabberpoint.Slide;
-import com.jabberpoint.commands.PrevCommand;
+import com.jabberpoint.commandPattern.commands.PrevCommand;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

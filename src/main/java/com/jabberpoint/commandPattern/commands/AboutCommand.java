@@ -1,4 +1,4 @@
-package com.jabberpoint.commands;
+package com.jabberpoint.commandPattern.commands;
 
 import com.jabberpoint.AboutBox;
 

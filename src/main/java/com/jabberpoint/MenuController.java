@@ -1,8 +1,8 @@
 package com.jabberpoint;
 
-import com.jabberpoint.menuItems.FileMenuItem;
-import com.jabberpoint.menuItems.ViewMenuItem;
-import com.jabberpoint.menuItems.HelpMenuItem;
+import com.jabberpoint.commandPattern.menuItems.FileMenuItem;
+import com.jabberpoint.commandPattern.menuItems.ViewMenuItem;
+import com.jabberpoint.commandPattern.menuItems.HelpMenuItem;
 
 import java.awt.Frame;
 import java.awt.MenuBar;
