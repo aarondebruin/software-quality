@@ -1,8 +1,8 @@
 package com.jabberpoint.commandPattern.commands;
 
-import com.jabberpoint.Accessor;
-import com.jabberpoint.Presentation;
-import com.jabberpoint.XMLAccessor;
+import com.jabberpoint.io.Accessor;
+import com.jabberpoint.core.Presentation;
+import com.jabberpoint.io.XMLAccessor;
 
 import javax.swing.*;
 import java.awt.*;

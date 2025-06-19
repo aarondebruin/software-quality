@@ -1,10 +1,5 @@
-import com.jabberpoint.Style;
-import com.jabberpoint.TextItem;
+import com.jabberpoint.core.TextItem;
 import org.junit.jupiter.api.Test;
-
-import java.awt.Font;
-import java.text.AttributedCharacterIterator;
-import java.text.AttributedString;
 
 import static org.junit.jupiter.api.Assertions.*;
 

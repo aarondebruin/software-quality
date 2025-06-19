@@ -1,4 +1,8 @@
-import com.jabberpoint.*;
+import com.jabberpoint.builderPattern.SlideBuilder;
+import com.jabberpoint.core.BitmapItem;
+import com.jabberpoint.core.Slide;
+import com.jabberpoint.core.SlideItem;
+import com.jabberpoint.core.TextItem;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

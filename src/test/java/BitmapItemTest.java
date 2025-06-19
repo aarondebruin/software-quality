@@ -1,9 +1,5 @@
-import com.jabberpoint.BitmapItem;
-import com.jabberpoint.Style;
+import com.jabberpoint.core.BitmapItem;
 import org.junit.jupiter.api.Test;
-
-import java.awt.*;
-import java.awt.image.BufferedImage;
 
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -1,6 +1,6 @@
 package com.jabberpoint.commandPattern.menuItems;
 
-import com.jabberpoint.Presentation;
+import com.jabberpoint.core.Presentation;
 import com.jabberpoint.commandPattern.commands.Command;
 import com.jabberpoint.commandPattern.commands.GoToCommand;
 import com.jabberpoint.commandPattern.commands.NextCommand;

@@ -1,8 +1,8 @@
 package com.jabberpoint.commandPattern;
 
 
-import com.jabberpoint.Presentation;
-import com.jabberpoint.SlideViewerFrame;
+import com.jabberpoint.core.Presentation;
+import com.jabberpoint.view.SlideViewerFrame;
 import com.jabberpoint.commandPattern.commands.*;
 
 import java.awt.event.KeyEvent;

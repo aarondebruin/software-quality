@@ -1,7 +1,7 @@
 
-import com.jabberpoint.presentation.PresentationCaretaker;
-import com.jabberpoint.presentation.PresentationMemento;
-import com.jabberpoint.slide.SlideMemento;
+import com.jabberpoint.mementoPattern.presentation.PresentationCaretaker;
+import com.jabberpoint.mementoPattern.presentation.PresentationMemento;
+import com.jabberpoint.mementoPattern.slide.SlideMemento;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

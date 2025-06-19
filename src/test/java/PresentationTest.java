@@ -1,6 +1,6 @@
-import com.jabberpoint.Presentation;
-import com.jabberpoint.Slide;
-import com.jabberpoint.presentation.PresentationMemento;
+import com.jabberpoint.core.Presentation;
+import com.jabberpoint.core.Slide;
+import com.jabberpoint.mementoPattern.presentation.PresentationMemento;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

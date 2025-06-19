@@ -1,6 +1,6 @@
 package com.jabberpoint.commandPattern.commands;
 
-import com.jabberpoint.AboutBox;
+import com.jabberpoint.view.AboutBox;
 
 import java.awt.*;
 

@@ -1,6 +1,6 @@
 package com.jabberpoint.commandPattern.commands;
 
-import com.jabberpoint.Presentation;
+import com.jabberpoint.core.Presentation;
 
 public class PrevCommand implements Command{
     private Presentation presentation;
