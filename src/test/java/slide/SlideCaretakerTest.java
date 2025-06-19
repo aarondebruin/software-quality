@@ -1,3 +1,4 @@
+package slide;
 
 import com.jabberpoint.core.SlideItem;
 import com.jabberpoint.mementoPattern.slide.SlideCaretaker;

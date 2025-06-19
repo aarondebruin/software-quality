@@ -1,4 +1,7 @@
-package com.jabberpoint.core;
+package com.jabberpoint.director;
+
+import com.jabberpoint.core.PresentationStyle;
+import com.jabberpoint.core.StyleBuilderInterface;
 
 import java.awt.Color;
 

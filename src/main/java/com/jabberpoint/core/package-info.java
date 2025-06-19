@@ -3,7 +3,7 @@
  *
  * Klasses in deze package zorgen voor de datastructuren:
  * - Presentation, Slide, SlideItem
- * - Style en StyleDirector
+ * - Style
  * - TextItem en BitmapItem
  * - SlideVisitor voor rendering
  */

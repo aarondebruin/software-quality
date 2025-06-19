@@ -1,6 +1,7 @@
 package com.jabberpoint.core;
 
 import com.jabberpoint.builderPattern.StyleBuilder;
+import com.jabberpoint.director.StyleDirector;
 
 import java.awt.Color;
 import java.awt.Font;

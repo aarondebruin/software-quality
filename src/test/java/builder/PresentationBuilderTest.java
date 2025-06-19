@@ -1,3 +1,5 @@
+package builder;
+
 import com.jabberpoint.core.Presentation;
 import com.jabberpoint.builderPattern.PresentationBuilder;
 import com.jabberpoint.core.Slide;

@@ -36,6 +36,21 @@ public class SlideViewerFrame extends JFrame {
     setupWindow(slideViewerComponent, presentation);
   }
 
+  public SlideViewerFrame(String title, Presentation presentation, boolean testMode) {
+    super(title);
+    SlideViewerComponent slideViewerComponent = new SlideViewerComponent(presentation, this);
+    presentation.setShowView(slideViewerComponent);
+    if (!testMode) {
+      setupWindow(slideViewerComponent, presentation);
+    } else {
+      // Setup zonder setVisible en zonder window listener, alleen basics
+      setTitle(JABTITLE);
+      getContentPane().add(slideViewerComponent);
+      setSize(new Dimension(WIDTH, HEIGHT));
+    }
+  }
+
+
   // De GUI opzetten
   public void setupWindow(SlideViewerComponent slideViewerComponent, Presentation presentation) {
     setTitle(JABTITLE);

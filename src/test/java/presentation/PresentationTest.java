@@ -1,3 +1,5 @@
+package presentation;
+
 import com.jabberpoint.core.Presentation;
 import com.jabberpoint.core.Slide;
 import com.jabberpoint.mementoPattern.presentation.PresentationMemento;

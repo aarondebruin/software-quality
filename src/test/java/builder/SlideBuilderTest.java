@@ -1,3 +1,5 @@
+package builder;
+
 import com.jabberpoint.builderPattern.SlideBuilder;
 import com.jabberpoint.core.BitmapItem;
 import com.jabberpoint.core.Slide;
